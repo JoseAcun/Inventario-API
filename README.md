@@ -29,8 +29,11 @@ tener MariaDB corriendo en el puerto 3306 o configurarlo previamente en applicat
 spring.application.name=inventario
 
 spring.datasource.url=jdbc:mariadb://localhost:__3306__/inventario **Eleccion de motor de base de datos montado en el pueto 3306**
+
 spring.datasource.username=root  **Usuario para acceder a bases de datos**
+
 spring.datasource.password=password **Reemplazar por contraseña para acceder a las bases de datos**
+
 spring.datasource.driver-class-name=org.mariadb.jdbc.Driver
 
 spring.jpa.hibernate.ddl-auto=update
@@ -57,26 +60,28 @@ La Api quedara corriendo en http://localhost:8080
 
 ## Principales endpoints
 
-**GET** /api/productos -> Lista todos los productos
-**GET** /api/productos/{id} -> Obtener un producto por ID
-**POST** /api/productos -> Crear un nuevo producto
+**GET** /api/productos -> Lista todos los productos.  
+**GET** /api/productos/{id} -> Obtener un producto por ID.  
+**POST** /api/productos -> Crear un nuevo producto.  
+
 JSON:
     {
     "nombre": "Laptop",
     "descripcion": "Laptop de 15 pulgadas",
     "stock": 10,
     "precio": 2500.0
-    }
-**PUT** /api/productos/{id} -> Actualizar un producto existente
-**DELETE** /api/productos/{id} -> Eliminar un producto
+    }  
+
+**PUT** /api/productos/{id} -> Actualizar un producto existente.  
+**DELETE** /api/productos/{id} -> Eliminar un producto.  
 
 ------------------------------------------
 
 ## Stock
 
-**GET** /api/productos/{id}/stock -> Consulta si hay stock disponible
-**POST** /api/productos/{id}/entrada/{cantidad} → Registrar entrada de stock
-**POST** /api/productos/{id}/salida/{cantidad} → Registrar salida de stock
+**GET** /api/productos/{id}/stock -> Consulta si hay stock disponible.  
+**POST** /api/productos/{id}/entrada/{cantidad} → Registrar entrada de stock.  
+**POST** /api/productos/{id}/salida/{cantidad} → Registrar salida de stock.  
 
 ## Documentación interactiva
 
