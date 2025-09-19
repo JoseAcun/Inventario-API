@@ -61,27 +61,69 @@ La Api quedara corriendo en http://localhost:8080
 ## Principales endpoints
 
 **GET** /api/productos -> Lista todos los productos.  
+
+# Listar todos los productos  
+curl -X GET http://localhost:8080/api/productos  
+
 **GET** /api/productos/{id} -> Obtener un producto por ID.  
+curl -X GET http://localhost:8080/api/productos/{id}
+  
 **POST** /api/productos -> Crear un nuevo producto.  
 
-JSON:
-    {
-    "nombre": "Laptop",
-    "descripcion": "Laptop de 15 pulgadas",
-    "stock": 10,
-    "precio": 2500.0
-    }  
+JSON:  
+    {  
+    "nombre": "Laptop",  
+    "descripcion": "Laptop de 15 pulgadas",  
+    "stock": 10,  
+    "precio": 2500.0  
+    }    
+
+## Ejemplo:
+
+# Crear un producto
+curl -X POST http://localhost:8080/api/productos \  
+-H "Content-Type: application/json" \  
+-d '{  
+  "nombre": "Laptop",  
+  "descripcion": "Laptop gamer",  
+  "stock": 10,  
+  "precio": 2500.0  
+}'  
+
 
 **PUT** /api/productos/{id} -> Actualizar un producto existente.  
+
+curl -X PUT http://localhost:8080/api/productos/1 \  
+-H "Content-Type: application/json" \  
+-d '{  
+  "nombre": "Laptop Gamer",  
+  "descripcion": "Laptop actualizada con RTX",  
+  "stock": 15,  
+  "precio": 3000.0  
+}'  
+
+
 **DELETE** /api/productos/{id} -> Eliminar un producto.  
+curl -X DELETE http://localhost:8080/api/productos/1  
+
 
 ------------------------------------------
 
 ## Stock
 
 **GET** /api/productos/{id}/stock -> Consulta si hay stock disponible.  
+
+# Consultar stock de un producto  
+curl -X GET http://localhost:8080/api/productos/1/stock  
+
 **POST** /api/productos/{id}/entrada/{cantidad} → Registrar entrada de stock.  
+
+curl -X POST http://localhost:8080/api/productos/1/entrada/5  
+
 **POST** /api/productos/{id}/salida/{cantidad} → Registrar salida de stock.  
+
+curl -X POST http://localhost:8080/api/productos/1/salida/3  
+
 
 ## Documentación interactiva
 
